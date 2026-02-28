@@ -2,7 +2,7 @@
 
 require_relative 'connect_four/board'
 require_relative 'connect_four/game'
-require_relative 'connect_four/plater'
+require_relative 'connect_four/player'
 
 module ConnectFour
   class Error < StandardError; end

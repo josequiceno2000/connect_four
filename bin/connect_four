@@ -1,7 +1,16 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.unshift File.expand_path('.../lib', __dir__)
 
-require 'connect_four'
+lib_path = File.expand_path('../lib', __dir__)
+$LOAD_PATH.unshift(lib_path) unless $LOAD_PATH.include?(lib_path)
+
+begin
+  require 'connect_four'
+rescue LoadError => e
+  puts "Current Load PAth ($LOAD_PATH):"
+  puts $LOAD_PATH
+  puts "\nError: #{e.message}"
+  exit 1
+end
 
 ConnectFour::Game.new.play
